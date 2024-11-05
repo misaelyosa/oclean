@@ -26,3 +26,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::middleware('role : user')->group((function () {
+    
+}));
