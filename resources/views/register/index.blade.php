@@ -13,7 +13,7 @@
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Create an account
               </h1>
-              <form class="space-y-4 md:space-y-6" action="{{route('register.store')}}" method="POST">
+              <form class="space-y-4 md:space-y-6" action="{{route('register.store')}}" method="post">
                 @csrf
                     <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
@@ -38,26 +38,24 @@
                     </div>
 
                     <div>
-                        
-                            <label for="umur" name="umur" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Age:</label>
-                            <div class="relative flex items-center max-w-[8rem]">
-                                <button type="button" id="decrement-button" data-input-counter-decrement="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
-                                    </svg>
-                                </button>
-                                <input type="text" id="umur" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="999" value="18" required />
-                                <button type="button" id="increment-button" data-input-counter-increment="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Please enter a 2 digit number.</p>
-                            @error('umur')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                    
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Age:</label>
+                        <div class="relative flex items-center max-w-[8rem]">
+                            <button type="button" id="decrement-button" data-input-counter-decrement="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                                </svg>
+                            </button>
+                            <input type="umur" name="umur" id="umur" data-input-counter data-input-counter-min="1" data-input-counter-max="100" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="999" value="18" required />
+                            <button type="button" id="increment-button" data-input-counter-increment="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Please enter a 2 digit number.</p>
+                        @error('umur')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
@@ -70,7 +68,7 @@
 
                     <!-- lgender picker -->
                     <div>
-                        <button id="dropdownSelectGender" data-dropdown-toggle="DropdownGender" class="w-full relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Segss?
+                        <button id="dropdownSelectGender" data-dropdown-toggle="DropdownGender" class="w-full relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select your gender
                             <svg class="w-2.5 h-2.5 ms-3 absolute right-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
@@ -78,14 +76,13 @@
 
                         <input type="hidden" name="gender" id="gender" required>
 
-                        <!-- DropdownGender menu -->
                         <div id="DropdownGender" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSelectGender">
                             <li>
-                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectGender('Laki-Laki')">Laki-Laki</a>
+                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectGender('male')">Male</a>
                             </li>
                             <li>
-                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectGender('Perempuan')">Perempuan</a>
+                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectGender('female')">Female</a>
                             </li>
                             </ul>
                         </div>
@@ -107,7 +104,7 @@
                     </div>
                     <!-- Dropdown pilih role -->
                     <div>
-                        <button id="dropdownSelectRole" data-dropdown-toggle="dropdownRole" class="w-full relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Daftarkan diri sebagai... 
+                        <button id="dropdownSelectRole" data-dropdown-toggle="dropdownRole" class="w-full relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Daftarkan diri sebagai 
                             <svg class="w-2.5 h-2.5 ms-3 absolute right-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
@@ -115,17 +112,17 @@
 
                         <input type="hidden" name="role" id="role" required>
 
-                        <!-- Dropdown menu -->
+                        
                         <div id="dropdownRole" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSelectRole">
                             <li>
-                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('user')">User (Donatur Sampah)</a>
+                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('User')">User (Donatur Sampah)</a>
                             </li>
                             <li>
-                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('peternak_maggot')">Peternak Maggot</a>
+                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('Peternak Maggot')">Peternak Maggot</a>
                             </li>
                             <li>
-                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('admin_bank_sampah')">Bank Sampah</a>
+                                <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('Bank Sampah')">Bank Sampah</a>
                             </li>
                             </ul>
                         </div>

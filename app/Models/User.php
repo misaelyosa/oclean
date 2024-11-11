@@ -21,6 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'alamat',
+        'umur',
+        'gender',
+        'no_telp',
+        'poin',
+    ];
+
+    protected $attributes = [
+        'poin' => 0,
     ];
 
     /**
