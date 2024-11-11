@@ -38,7 +38,7 @@
                     </div>
 
                     <div>
-                        <form class="max-w-xs mx-auto" >
+                        
                             <label for="umur" name="umur" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Age:</label>
                             <div class="relative flex items-center max-w-[8rem]">
                                 <button type="button" id="decrement-button" data-input-counter-decrement="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
@@ -57,7 +57,7 @@
                             @error('umur')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
-                        </form>
+                    
                     </div>
 
                     <div>
