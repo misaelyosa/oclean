@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('gender');
             $table->string('no_telp');
             $table->integer('poin');
-            $table->foreignId('id_sampah');
             $table->rememberToken();
             $table->timestamps();
         });

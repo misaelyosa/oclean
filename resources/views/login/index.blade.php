@@ -1,12 +1,13 @@
 @extends('base.base')
+<title>Login</title>
 
 @section('content')
 <section class="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center">
   <div class="w-full flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="/home" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <!-- <a href="/home" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img class="w-8 h-8 mr-2" src="" alt="logo">
           Oclean    
-      </a>
+      </a> -->
       @if (session('success'))
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             <span class="font-medium">{{ session('success') }}</span>

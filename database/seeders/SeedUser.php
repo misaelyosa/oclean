@@ -28,9 +28,8 @@ class SeedUser extends Seeder
                 'gender'=>$faker->randomElement($gender),
                 'alamat'=>$faker->address(),
                 'poin'=>0,
-                'umur'=>rand(13,80),
+                'umur'=>rand(10,80),
                 'no_telp'=>$faker->phoneNumber(),
-                'id_sampah'=> $i, //sementara
             ]);
         }
     }
