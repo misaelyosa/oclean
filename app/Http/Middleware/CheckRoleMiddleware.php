@@ -14,10 +14,10 @@ class CheckRoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $permission): Response
+    public function handle(Request $request, Closure $next, ...$permission): Response
     {
         if (Auth::user() !== null){
-            if(in_array(Auth::user()->roles[0]->role, ... $permission))
+            if(in_array(Auth::user()->roles[0]->role,  $permission))
                 return $next($request);
             else abort(403);
         }
