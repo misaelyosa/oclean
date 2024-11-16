@@ -52,7 +52,9 @@ Route::middleware('role:user')->group(function(){
 
     Route::get("/profile", function(){
         return view ('user.profile');
-    });
+    })->name('profile');
+
+    Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
 
 //SUPERADMIN
