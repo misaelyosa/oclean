@@ -49,6 +49,12 @@ Route::middleware('role:user')->group(function(){
     Route::get('/user', function(){
         return view('user.index');
     });
+
+    Route::get("/profile", function(){
+        return view ('user.profile');
+    })->name('profile');
+
+    Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
 
 //SUPERADMIN
