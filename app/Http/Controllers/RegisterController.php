@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 use DB;
-use Hash;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
