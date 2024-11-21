@@ -19,10 +19,14 @@ use function PHPUnit\Framework\returnSelf;
 
 //LANDING PAGE
 Route::get('/', function () {
-    return view('home');
+    return view('home',[
+        'title'=>'home'
+    ]);
 });
 Route::get('/home', function () {
-    return view('home');
+    return view('home',[
+        'title'=>'home'
+    ]);
 });
 
 

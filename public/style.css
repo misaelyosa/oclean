@@ -1,0 +1,37 @@
+.fade{
+    animation: fadeInUp 0.75s;
+}
+.in{
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px); /* Mulai dari bawah */
+        opacity: 0; /* Transparan di awal */
+    }
+    100% {
+        transform: translateY(0); /* Akhir di posisi semula */
+        opacity: 1; /* Sepenuhnya terlihat di akhir */
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+        
+        opacity: 0; /* Transparan di awal */
+    }
+    100% {
+        
+        opacity: 1; /* Sepenuhnya terlihat di akhir */
+    }
+  }
+
+.bg{
+    background-image: url('assets/bg-login2.jpg'); /* Menentukan gambar latar belakang */
+    background-size: cover; /* Mengatur gambar agar menutupi seluruh area elemen */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    background-position: center;
+    image-rendering: auto; /* Menghindari tampilan buram atau kotak-kotak */
+    -webkit-image-rendering: auto; /* Untuk browser berbasis WebKit seperti Chrome/Safari */
+    -moz-image-rendering: auto; /* Untuk Firefox */
+}
