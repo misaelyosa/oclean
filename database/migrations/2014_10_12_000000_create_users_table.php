@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('alamat');
+            $table->string('alamat');
+            $table->string('kecamatan');
+            $table->string('kota');
             $table->integer('umur');
             $table->string('gender');
             $table->string('no_telp');
