@@ -45,7 +45,7 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                                 </svg>
                             </button>
-                            <input type="umur" name="umur" id="umur" data-input-counter data-input-counter-min="1" data-input-counter-max="100" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="999" value="18" required />
+                            <input type="umur" name="umur" id="umur" data-input-counter data-input-counter-min="1" data-input-counter-max="100" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="999" required value="{{ old('umur' , '18') }}" />
                             <button type="button" id="increment-button" data-input-counter-increment="umur" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                 <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
@@ -74,7 +74,7 @@
                             </svg>
                         </button>
 
-                        <input type="hidden" name="gender" id="gender" required>
+                        <input type="hidden" name="gender" id="gender" required value="{{ old('gender') }}">
 
                         <div id="DropdownGender" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSelectGender">
@@ -86,6 +86,10 @@
                             </li>
                             </ul>
                         </div>
+
+                        @error('gender')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror    
                     </div>
 
                     <div>
@@ -110,10 +114,9 @@
                             </svg>
                         </button>
 
-                        <input type="hidden" name="role" id="role" required>
-
+                        <input type="hidden" name="role" id="role" value="{{ old('role') }}" required>
                         
-                        <div id="dropdownRole" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700">
+                        <div id="dropdownRole" class="z-10 hidden bg-white  divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700" >
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSelectRole">
                             <li>
                                 <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectRole('User')">User (Donatur Sampah)</a>
@@ -126,6 +129,11 @@
                             </li>
                             </ul>
                         </div>
+
+                        @error('role')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-red-500 text-sm mt-1">Please select your role again</p>
+                        @enderror    
                     </div>
 
                   <button type="submit" class="w-full text-white bg-main_green hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
@@ -144,14 +152,14 @@
 <script>
     function selectGender(value) {
         document.getElementById('gender').value = value;
-        console.log(value)
+        // console.log(value)
         document.getElementById('dropdownSelectGender').innerText = `Selected: ${value}`;
         document.getElementById('DropdownGender').classList.add('hidden');
     }
 
     function selectRole(value) {
         document.getElementById('role').value = value;
-        console.log(value)
+        // console.log(value)
         document.getElementById('dropdownSelectRole').innerText = `Selected: ${value}`;
         document.getElementById('dropdownRole').classList.add('hidden');
     }
