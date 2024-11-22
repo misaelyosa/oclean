@@ -34,4 +34,6 @@
     image-rendering: auto; /* Menghindari tampilan buram atau kotak-kotak */
     -webkit-image-rendering: auto; /* Untuk browser berbasis WebKit seperti Chrome/Safari */
     -moz-image-rendering: auto; /* Untuk Firefox */
+    width: 100%;
+    height: 100vh;
 }
