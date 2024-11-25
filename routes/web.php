@@ -36,7 +36,7 @@ Route::middleware('guest')->group(function(){
     //login
     Route::get('/login', function() {
         return view('login.index');
-    });
+    })->name('login.index');
     Route::post('/login', [LoginController::class, 'authenticate']);
 });
 
@@ -53,6 +53,12 @@ Route::middleware('role:user')->group(function(){
     Route::get("/profile", function(){
         return view ('user.profile');
     })->name('profile');
+
+    Route::get("/inputSampah", function(){
+        return view ('user.inputSampah');
+    })->name('inputSampah');
+
+
 
     Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
