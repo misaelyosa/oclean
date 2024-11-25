@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function roles(){
         return $this->hasMany(Roles::class, 'user_id', 'id');
     }
+
+    public function sampah(){
+        return $this->hasMany(Sampah::class, 'user_id', 'id');
+    }
 }
