@@ -4,6 +4,9 @@
 .in{
     animation: fadeIn 0.5s;
 }
+#navbar{
+    z-index: 50;
+}
 
 @keyframes fadeInUp {
     0% {

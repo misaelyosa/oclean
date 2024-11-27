@@ -10,7 +10,6 @@
     <title>O-Clean</title>
 </head>
 <body>
-@include('includes.nav')
     @yield('content')
 </body>
 </html>

@@ -57,13 +57,13 @@ Route::middleware('role:user')->group(function(){
     Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
 
     Route::get("/profile", function(){
-        return view ('user.profile');
+        return view ('user.profile', ['title' =>'profile']);
     })->name('profile');
 
     // Route::get("/sampah", function(){
     //     return view ('user.sampah');
     // })->name('sampah');
-    Route::get("/sampah",[SampahController::class, 'show']);
+    Route::get("/sampah",[SampahController::class, 'show'])->name('user.sampah');
 
 
     Route::get('/user',[UserController::class,'index'])->name('user.index');

@@ -14,6 +14,8 @@ class SampahController extends Controller
 
         $sampah = $user->sampah;
 
-        return view('user.sampah', compact('sampah'));
+        $title = "sampah";
+
+        return view('user.sampah', compact('sampah', 'title'));
     }
 }

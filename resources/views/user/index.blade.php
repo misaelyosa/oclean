@@ -1,5 +1,4 @@
 @extends('base.base')
-@include('navbar.nav')
 @section('content')
    <div class="flex flex-col place-content-center items-center pt-28 w-full ">
         <div class="fade sc mb-4 fade border border-2  border-r-green-600 border-l-green-600 flex flex-col md:flex-row place-content-center items-center px-8 py-4 rounded-xl ">

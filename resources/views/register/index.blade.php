@@ -1,4 +1,4 @@
-@extends('base.base')
+@extends('base.login')
 <title>Register</title>
 
 @section('content')
