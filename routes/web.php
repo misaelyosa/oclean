@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -54,9 +55,10 @@ Route::middleware('role:user')->group(function(){
         return view ('user.profile');
     })->name('profile');
 
-    Route::get("/inputSampah", function(){
-        return view ('user.inputSampah');
-    })->name('inputSampah');
+    // Route::get("/sampah", function(){
+    //     return view ('user.sampah');
+    // })->name('sampah');
+    Route::get("/sampah",[SampahController::class, 'show']);
 
 
 
