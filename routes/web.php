@@ -4,6 +4,7 @@ use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -20,11 +21,15 @@ use function PHPUnit\Framework\returnSelf;
 
 //LANDING PAGE
 Route::get('/', function () {
-    return view('home');
+    return view('home',[
+        'title'=>'home'
+    ])->name('home');
 });
 Route::get('/home', function () {
-    return view('home');
-});
+    return view('home',[
+        'title'=>'home'
+    ]);
+})->name('home');
 
 
 Route::middleware('guest')->group(function(){
@@ -47,9 +52,9 @@ Route::middleware('auth')->group(function(){
 
 //USER
 Route::middleware('role:user')->group(function(){
-    Route::get('/user', function(){
-        return view('user.index');
-    });
+    Route::get('/user/shop',[UserController::class,'indexShop'])->name('user.shop');
+    Route::get('/user/pickup',[UserController::class,'indexPickUp'])->name('user.pickup');
+    Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
 
     Route::get("/profile", function(){
         return view ('user.profile');
@@ -61,7 +66,7 @@ Route::middleware('role:user')->group(function(){
     Route::get("/sampah",[SampahController::class, 'show']);
 
 
-
+    Route::get('/user',[UserController::class,'index'])->name('user.index');
     Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
 
