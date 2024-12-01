@@ -17,6 +17,7 @@ class SeedBankSampah extends Seeder
         $faker = Faker::create();
         for($i=0; $i<3; $i++){
             DB::table('BankSampah')->insert([
+                'nama'=>$faker->name(),
                 'totalSampah'=>rand(10,100),
                 'admin'=>2,
             ]);

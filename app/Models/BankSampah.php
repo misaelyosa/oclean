@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class BankSampah extends Model
 {
     use HasFactory;
+    protected $table = 'BankSampah'; 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'nama',
         'totalSampah',
         'admin',
     ];
