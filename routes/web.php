@@ -71,9 +71,9 @@ Route::middleware('role:superadmin')->group(function(){
 });
 
 //ADMIN BANK SAMPAH
-Route::get('/banksampah',[BankSampahController::class,'index'])->name('bankSampah.index');
-Route::get('/banksampah/{id}',[BankSampahController::class,'BankID'])->name('bankSampah.byIndex');
 Route::middleware('role: admin_bank_sampah')->group(function(){
+    Route::get('/banksampah',[BankSampahController::class,'index'])->name('bankSampah.index');
+    Route::get('/banksampah/{id}',[BankSampahController::class,'BankID'])->name('bankSampah.byIndex');
 });
 
 //PETERNAK MAGGOT
