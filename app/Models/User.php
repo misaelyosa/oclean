@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function roles(){
         return $this->hasMany(Roles::class, 'user_id', 'id');
     }
+
+    public function BankSampah(){
+        return $this->hasMany(BankSampah::class, 'admin', 'id');
+    }
 }
