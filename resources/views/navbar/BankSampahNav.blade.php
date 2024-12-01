@@ -31,7 +31,7 @@
                 class="mb-4 me-4 my-4 flex flex-col justify-center items-center font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-2 md:flex-row md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                 <li class="flex justify-center items-center">
                     @if (Auth::check())
-                        <a href="{{ route('user.index') }}"
+                        <a href="{{ route('bankSampah.index', 'home') }}"
                             class=" {{ $title === 'home' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2 text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
                             Home
                         </a>
