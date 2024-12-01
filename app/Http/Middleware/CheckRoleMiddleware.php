@@ -18,9 +18,14 @@ class CheckRoleMiddleware
     {
         if (Auth::user() !== null){
             for($i = 0; $i<4; $i++){
-                if(in_array(Auth::user()->roles[$i]->role,  $permission))
+                $role = trim(strtolower(Auth::user()->roles[$i]->role));
+                $permissions = array_map('trim', array_map('strtolower', $permission));
+
+                // dd($role, $permissions);
+                if(in_array($role,  $permissions))
                     return $next($request);
-                else abort(403);
+                else
+                abort(403);
             }
         }
         else{
