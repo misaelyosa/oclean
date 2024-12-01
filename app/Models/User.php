@@ -22,8 +22,6 @@ class User extends Authenticatable
         'email',
         'password',
         'alamat',
-        'kecamatan',
-        'kota',
         'umur',
         'gender',
         'no_telp',

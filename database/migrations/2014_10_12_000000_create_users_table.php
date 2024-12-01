@@ -20,8 +20,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('alamat');
-            $table->string('kecamatan');
-            $table->string('kota');
             $table->integer('umur');
             $table->string('gender');
             $table->string('no_telp');
