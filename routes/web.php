@@ -70,10 +70,10 @@ Route::middleware('role:superadmin')->group(function(){
 });
 
 //ADMIN BANK SAMPAH
+Route::get('/banksampah', function () {
+    return view('admin_bank_sampah.index');
+});
 Route::middleware('role: admin_bank_sampah')->group(function(){
-    Route::get('/banksampah', function () {
-        return view('admin_bank_sampah.index');
-    });
 });
 
 //PETERNAK MAGGOT
