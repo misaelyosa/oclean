@@ -25,4 +25,12 @@ class BankSampah extends Model
     public function produks(){
         return $this->hasMany(Produk::class, 'bank', 'id');
     }
+
+    public function TransaksiSampah(){
+        return $this->hasMany(TransaksiSampah::class, 'id_bnksmph', 'id');
+    }
+
+    public function TransaksiProduk(){
+        return $this->hasMany(TransaksiProduk::class, 'id_user', 'id');
+    }
 }

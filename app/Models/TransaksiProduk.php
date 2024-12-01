@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produk extends Model
+class TransaksiProduk extends Model
 {
     use HasFactory;
     /**
@@ -14,17 +14,20 @@ class Produk extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'namaProduk',
-        'harga',
         'jumlah',
-        'bank',
+        'harga',
+        'total',
     ];
 
-    public function BankSampah(){
-        return $this->belongsTo(BankSampah::class, 'bank', 'id');
+    public function users(){
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
-    public function TransaksiProduk(){
-        return $this->belongsTo(TransaksiProduk::class, 'id_produk', 'id');
+    public function BankSampah(){
+        return $this->belongsTo(BankSampah::class, 'id_bnksmph', 'id');
+    }
+
+    public function produks(){
+        return $this->belongsTo(Produk::class, 'id_produk', 'id');
     }
 }

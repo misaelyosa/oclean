@@ -58,4 +58,12 @@ class User extends Authenticatable
     public function BankSampah(){
         return $this->hasMany(BankSampah::class, 'admin', 'id');
     }
+
+    public function TransaksiSampah(){
+        return $this->hasMany(TransaksiSampah::class, 'id_user', 'id');
+    }
+
+    public function TransaksiProduk(){
+        return $this->hasMany(TransaksiProduk::class, 'id_user', 'id');
+    }
 }
