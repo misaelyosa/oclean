@@ -149,7 +149,7 @@
 
 
 @section('script')
-<script>
+<!-- <script>
     function selectGender(value) {
         document.getElementById('gender').value = value;
         // console.log(value)
@@ -163,5 +163,5 @@
         document.getElementById('dropdownSelectRole').innerText = `Selected: ${value}`;
         document.getElementById('dropdownRole').classList.add('hidden');
     }
-</script>
+</script> -->
 @endsection
