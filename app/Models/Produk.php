@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankSampah extends Model
+class Produk extends Model
 {
     use HasFactory;
     /**
@@ -14,15 +14,13 @@ class BankSampah extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'totalSampah',
-        'admin',
+        'namaProduk',
+        'harga',
+        'jumlah',
+        'bank',
     ];
 
-    public function users(){
-        return $this->belongsTo(User::class, 'admin', 'id');
-    }
-
-    public function produks(){
-        return $this->hasMany(Produk::class, 'bank', 'id');
+    public function BankSampah(){
+        return $this->belongsTo(BankSampah::class, 'bank', 'id');
     }
 }
