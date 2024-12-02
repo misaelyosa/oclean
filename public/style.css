@@ -5,7 +5,7 @@
     animation: fadeIn 0.5s;
 }
 #navbar{
-    z-index: 50;
+    z-index: 40;
 }
 
 @keyframes fadeInUp {
@@ -43,6 +43,11 @@
     animation-timeline: view();
     animation-range: entry 0% cover 15% ;
 }
+.sh{
+    animation: fadeIn ;
+    animation-timeline: view();
+    animation-range: entry 0% cover 15% ;
+}
 .bg{
     background-image: url('assets/bg-login2.jpg'); /* Menentukan gambar latar belakang */
     background-size: cover; /* Mengatur gambar agar menutupi seluruh area elemen */
@@ -71,4 +76,13 @@
 .appear{
     transform: translateY(0%);
     transition: transform 0.3s ease;
+}
+.bg-shop{
+    background-image: url('assets/bgShop.jpg');
+    background-size: cover; /* Mengatur gambar agar menutupi seluruh area elemen */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    background-position: center;
+    image-rendering: auto; /* Menghindari tampilan buram atau kotak-kotak */
+    -webkit-image-rendering: auto; /* Untuk browser berbasis WebKit seperti Chrome/Safari */
+    -moz-image-rendering: auto; /* Untuk Firefox */
 }

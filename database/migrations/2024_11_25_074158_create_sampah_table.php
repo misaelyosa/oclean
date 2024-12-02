@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sampah', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("user_id");
+            $table->foreignId("user_id");
             $table->integer("berat");
             $table->string("foto");
             $table->boolean("verified")->default(false);

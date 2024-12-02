@@ -56,7 +56,6 @@ Route::middleware('role:user')->group(function(){
     Route::get('/user/shop',[UserController::class,'indexShop'])->name('user.shop');
     Route::get('/user/pickup',[UserController::class,'indexPickUp'])->name('user.pickup');
     Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
-
     Route::get("/profile", function(){
         return view ('user.profile', ['title' =>'profile']);
     })->name('profile');
