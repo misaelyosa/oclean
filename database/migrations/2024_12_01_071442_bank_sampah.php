@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('totalSampah');
             $table->unsignedBigInteger('admin');
             $table->foreign('admin')->references('id')->on('users');
+            $table->unsignedBigInteger('id_lokasi');
+            $table->foreign('id_lokasi')->references('id')->on('ekosistems');
             $table->timestamps();
         });
     }

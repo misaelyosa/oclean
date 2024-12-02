@@ -51,6 +51,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function ekosistems(){
+        return $this->belongsTo(Ekosistem::class, 'id_lokasi', 'id');
+    }
+
     public function roles(){
         return $this->hasMany(Roles::class, 'user_id', 'id');
     }
