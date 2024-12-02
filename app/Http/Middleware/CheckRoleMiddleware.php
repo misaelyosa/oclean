@@ -17,9 +17,16 @@ class CheckRoleMiddleware
     public function handle(Request $request, Closure $next, ...$permission): Response
     {
         if (Auth::user() !== null){
-            if(in_array(Auth::user()->roles[0]->role,  $permission))
-                return $next($request);
-            else abort(403);
+            for($i = 0; $i<4; $i++){
+                $role = trim(strtolower(Auth::user()->roles[$i]->role));
+                $permissions = array_map('trim', array_map('strtolower', $permission));
+
+                // dd($role, $permissions);
+                if(in_array($role,  $permissions))
+                    return $next($request);
+                else
+                abort(403);
+            }
         }
         else{
             return redirect()->route('login.index');

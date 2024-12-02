@@ -18,12 +18,14 @@ class SeedUser extends Seeder
         $gender = ['female', 'male'];
         $names = ['admin', 'bank sampah', 'peternakmaggot', 'rumah tangga'];
         $emails = ['admin@gmail.com', 'banksampah@gmail.com', 'peternakmaggot@gmail.com', 'rumahtangga@gmail.com'];
+        $roles = [1,2,3,4];
         $count= count($emails);
 
         for($i=0; $i<$count; $i++){
             DB::table('users')->insert([
                 'name'=>$names[$i],
                 'email'=>$emails[$i],
+                'role'=>$roles[$i],
                 'password'=>bcrypt('password'),
                 'gender'=>$faker->randomElement($gender),
                 'alamat'=>$faker->address(),

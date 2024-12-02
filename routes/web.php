@@ -72,7 +72,7 @@ Route::middleware('role:user')->group(function(){
 
 //SUPERADMIN
 Route::middleware('role:superadmin')->group(function(){
-    Route::get('superadmin', function() {
+    Route::get('/superadmin', function() {
         return view('superadmin.index');
     });
 });
