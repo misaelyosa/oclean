@@ -5,7 +5,11 @@
     animation: fadeIn 0.5s;
 }
 #navbar{
-    z-index: 50;
+    z-index: 1;
+}
+
+#crud-modal{
+    z-index: 51;
 }
 
 @keyframes fadeInUp {
