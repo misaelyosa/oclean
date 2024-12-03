@@ -5,8 +5,8 @@
         <img src="{{ asset('assets/profile.png') }}" class="w-20 md:me-4 mx-4" alt="">
             <div class="">
                 <p class="text-xl font-bold text-2xl my-2 md:text-left text-center md:my-0 md:text-4xl">HELLO, <span class="text-green-800">{{auth()->user()->name}}</span> !</p>      
-                <p class="text-gray-800 text-base md:text-left text-center my-1 md:my-0 md:text-lg">You have <span class="text-green-500 font-bold">30</span> points</p>    
-                <p class="text-gray-400 text-sm mb-2 md:mb-0 md:text-left text-center md:text-base"><span class="text-red-500 font-bold "> 5 </span>points expiring</p>    
+                <p class="text-gray-800 text-base md:text-left text-center my-1 md:my-0 md:text-lg">You have <span class="text-green-500 font-bold">{{auth()->user()->poin}}</span> points</p>    
+                <p class="text-gray-400 text-sm mb-2 md:mb-0 md:text-left text-center md:text-base"><span class="text-red-500 font-bold "> {{auth()->user()->poin/10}} </span>points expiring</p>    
             </div>     
             <a href="{{route('user.shop')}}" class="md:flex block ms-4 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Redeem Now</a>
         </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="fade sc mx-4 my-4 md:my-4 border border-white bg-white rounded-xl p-8">
                 <p>Total Points Collected:</p>
-                <p><span class="text-green-500 font-bold "> 600 </span> Point(s)</p>
+                <p><span class="text-green-500 font-bold "> 1000 </span> Point(s)</p>
             </div>
             <div class="fade sc mx-4 my-4 md:my-4 border border-white bg-white rounded-xl p-8">
                 <p>Total Point Redeemed:</p>

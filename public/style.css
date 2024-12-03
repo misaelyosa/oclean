@@ -86,7 +86,9 @@
     background-size: cover; /* Mengatur gambar agar menutupi seluruh area elemen */
     background-repeat: no-repeat; /* Mencegah pengulangan gambar */
     background-position: center;
+    background-attachment: fixed;
     image-rendering: auto; /* Menghindari tampilan buram atau kotak-kotak */
     -webkit-image-rendering: auto; /* Untuk browser berbasis WebKit seperti Chrome/Safari */
     -moz-image-rendering: auto; /* Untuk Firefox */
+    
 }
