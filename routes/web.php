@@ -1,8 +1,6 @@
 <?php
 
-<<<<<<<<< Temporary merge branch 1
-use App\Http\Controllers\SampahController;
-=========
+
 use App\Http\Controllers\BankSampahController;
 use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
