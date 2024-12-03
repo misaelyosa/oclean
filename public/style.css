@@ -8,6 +8,10 @@
     z-index: 40;
 }
 
+.modal-shop {
+    z-index: 10500; /* Adjust this to a higher value if necessary */
+}
+
 @keyframes fadeInUp {
     0% {
         transform: translateY(30px); /* Mulai dari bawah */
