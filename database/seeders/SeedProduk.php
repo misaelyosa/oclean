@@ -15,7 +15,7 @@ class SeedProduk extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        for($i=0; $i<3; $i++){
+        for($i=0; $i<40; $i++){
             DB::table('produks')->insert([
                 'namaProduk'=>$faker->word(),
                 'harga'=>random_int(50000,150000),

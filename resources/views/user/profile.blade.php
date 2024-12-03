@@ -1,6 +1,6 @@
 @extends('base.base')
 @section('content')
-<section class="bg-gray-50 dark:bg-gray-900 py-10">
+<section class="bg-gray-50 dark:bg-gray-900 py-28">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
       @if (session('success'))
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">

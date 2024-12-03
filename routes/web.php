@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SampahController;
 use App\Http\Controllers\BankSampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -42,7 +43,7 @@ Route::middleware('guest')->group(function(){
     //login
     Route::get('/login', function() {
         return view('login.index');
-    });
+    })->name('login.index');
     Route::post('/login', [LoginController::class, 'authenticate']);
 });
 
@@ -55,10 +56,16 @@ Route::middleware('role:user')->group(function(){
     Route::get('/user/shop',[UserController::class,'indexShop'])->name('user.shop');
     Route::get('/user/pickup',[UserController::class,'indexPickUp'])->name('user.pickup');
     Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
-
     Route::get("/profile", function(){
-        return view ('user.profile');
+        return view ('user.profile', ['title' =>'profile']);
     })->name('profile');
+
+    // Route::get("/sampah", function(){
+    //     return view ('user.sampah');
+    // })->name('sampah');
+    Route::get("/sampah",[SampahController::class, 'show'])->name('user.sampah');
+
+
     Route::get('/user',[UserController::class,'index'])->name('user.index');
     Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
