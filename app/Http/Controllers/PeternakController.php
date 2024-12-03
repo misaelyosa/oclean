@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class PeternakController extends Controller
 {
     public function sampahs(){
-        $banksampah = BankSampah::all();
+        // $banksampah = BankSampah::where('id_lokasi', Auth::user()->id_lokasi)->get();
+        $banksampah = BankSampah::where('id_lokasi', 1)->get();
         return view('peternak_maggot.jumlahSampah', ['title'=>'Bank Sampah', 'banks'=>$banksampah]);
     }
 
     public function produks(){
-        // $banksampah = BankSampah::where('admin', Auth::user()->id)->get();
-        // return view('admin_bank_sampah.index', ['title' => 'home', 'banks' => $banksampah]);
+        // $history = BankSampah::where('admin', Auth::user()->id)->get();
+        // return view('peternak_maggot.produks', ['title' => 'History Produk', 'history' => $history]);
     }
 
     public function bank($id)
@@ -25,14 +26,15 @@ class PeternakController extends Controller
         // $mutasiSampah = TransaksiSampah::with('users')->where('id_bnksmph', $banksampah->id)->get();
         // $produks = Produk::where('bank', $banksampah->id)->get();
         // $penjualan = TransaksiProduk::with('users')->with('produks')->where('id_bnksmph', $banksampah->id)->get();
-        // return view('admin_bank_sampah.bankSampah', [
-        //     'title' => $banksampah->nama,
-        //     'bank' => $banksampah,
-        //     'mutasi' => $mutasiSampah,
-        //     'produks' => $produks,
-        //     'penjualan' => $penjualan,
-        // ]);
+        return view('peternak_maggot.bankSampah', [
+            'title' => $banksampah->nama,
+            'bank' => $banksampah,
+            // 'mutasi' => $mutasiSampah,
+            // 'produks' => $produks,
+            // 'penjualan' => $penjualan,
+        ]);
     }
+
     public function updateStatus(Request $request, $id)
     {
         // $validated = $request->validate([
