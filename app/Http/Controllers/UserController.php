@@ -38,5 +38,17 @@ class UserController extends Controller
   
         return view('user.pickup_sampah', ['title'=>'pickup']);
     }
+
+    public function showTransaksi(){
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+
+        $transaksi = $user->TransaksiProduk;
+
+        $title = "transaksi";
+
+        return view('user.pickup_sampah', compact('transaksi', 'title'));
+
+    }
    
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 
 use function PHPUnit\Framework\returnSelf;
@@ -55,11 +56,12 @@ Route::middleware('auth')->group(function(){
 //USER
 Route::middleware('role:user')->group(function(){
     Route::get('/user/shop',[UserController::class,'indexShop'])->name('user.shop');
-    Route::get('/user/pickup',[UserController::class,'indexPickUp'])->name('user.pickup');
+    Route::get('/user/pickup',[UserController::class,'showTransaksi'])->name('user.transaksi');
     Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
     Route::get("/profile", function(){
         return view ('user.profile', ['title' =>'profile']);
     })->name('profile');
+    Route::post('user/shop/{produk:id}',[ShopController::class,'buy'])->name('shop.beli');
 
     // Route::get("/sampah", function(){
     //     return view ('user.sampah');
