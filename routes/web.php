@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankSampahController;
 use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -72,16 +73,16 @@ Route::middleware('role:user')->group(function(){
 
 //SUPERADMIN
 Route::middleware('role:superadmin')->group(function(){
-    Route::get('superadmin', function() {
+    Route::get('/superadmin', function() {
         return view('superadmin.index');
     });
 });
 
 //ADMIN BANK SAMPAH
-Route::middleware('role: admin_bank_sampah')->group(function(){
-    Route::get('/banksampah', function () {
-        return view('admin_bank_sampah.index');
-    });
+Route::middleware('role:admin_bank_sampah')->group(function(){
+    Route::get('/banksampah',[BankSampahController::class,'index'])->name('bankSampah.index');
+    Route::get('/banksampah/{id}',[BankSampahController::class,'BankID'])->name('bankSampah.byIndex');
+    Route::post('/banksampah/validate/{id}',[BankSampahController::class,'updateStatus'])->name('bankSampah.validasi');
 });
 
 //PETERNAK MAGGOT

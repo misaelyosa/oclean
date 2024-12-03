@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Roles;
 
 class CheckRoleMiddleware
 {
@@ -16,10 +17,18 @@ class CheckRoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$permission): Response
     {
+        // dd(Auth::user()->role);
         if (Auth::user() !== null){
-            if(in_array(Auth::user()->roles[0]->role,  $permission))
+            $role_id = Auth::user()->role;
+            $role = Roles::where('id', $role_id)->value('role');
+            // dd($role);
+
+            $permissions = array_map('trim', array_map('strtolower', $permission));
+            // dd($role, $permissions);
+            if(in_array($role,  $permissions))
                 return $next($request);
-            else abort(403);
+            else
+            abort(403);
         }
         else{
             return redirect()->route('login.index');
