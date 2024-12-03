@@ -1,5 +1,8 @@
 <?php
 
+<<<<<<<<< Temporary merge branch 1
+use App\Http\Controllers\SampahController;
+=========
 use App\Http\Controllers\BankSampahController;
 use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
@@ -56,7 +59,6 @@ Route::middleware('role:user')->group(function(){
     Route::get('/user/shop',[UserController::class,'indexShop'])->name('user.shop');
     Route::get('/user/pickup',[UserController::class,'indexPickUp'])->name('user.pickup');
     Route::get('/user/custserv',[UserController::class,'indexCustServ'])->name('user.custserv');
-
     Route::get("/profile", function(){
         return view ('user.profile', ['title' =>'profile']);
     })->name('profile');

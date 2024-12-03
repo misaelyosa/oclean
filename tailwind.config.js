@@ -17,6 +17,9 @@ module.exports = {
         '18' : '4.5rem',
         '32' : '7.5rem',
       },
+      backgroundImage : {
+        'pupuk-kasgot' : "url(/assets/pupukkasgot.jpg)"
+      }
     },
   },
   plugins: [
