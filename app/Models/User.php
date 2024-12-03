@@ -74,4 +74,12 @@ class User extends Authenticatable
     public function TransaksiProduk(){
         return $this->hasMany(TransaksiProduk::class, 'id_user', 'id');
     }
+
+    public function sampah(){
+        return $this->hasMany(Sampah::class, 'user_id', 'id');
+    }
+
+    public function verifiedSampah(){
+        return $this->hasMany(Sampah::class, 'admin_id', 'id');
+    }
 }

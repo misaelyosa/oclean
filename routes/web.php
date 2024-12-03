@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SampahController;
+
 use App\Http\Controllers\BankSampahController;
+use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
