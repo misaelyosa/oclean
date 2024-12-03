@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TransaksiProduk;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,18 @@ class ShopController extends Controller
 
             $user = Auth::user();
             $user->poin = $user->poin - 150;
- // Simpan perubahan ke database
- $user->save();
+            // Simpan perubahan ke database
+            $user->save();
+
+            $transaksi = new TransaksiProduk;
+            $transaksi->jumlah = $produk->jumlah;
+            $transaksi->harga = $produk->harga;
+            $transaksi->total = $produk->jumlah * $produk->harga;
+            $transaksi->id_produk = $produk->id;
+            $transaksi->id_user = $user->id;
+            $transaksi->id_bnksmph = $produk->bank;
+            $transaksi->save();
+
             return redirect()->route('user.shop')->with('success', "Berhasil!, Poin anda telah ditukarkan");
     }  
 }
