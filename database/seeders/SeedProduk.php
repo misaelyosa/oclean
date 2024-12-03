@@ -20,7 +20,7 @@ class SeedProduk extends Seeder
                 'namaProduk'=>$faker->word(),
                 'harga'=>random_int(50000,150000),
                 'jumlah'=>random_int(0,15),
-                'bank'=>random_int(1,3),
+                'bank'=>random_int(2,4),
             ]);
         }
     }

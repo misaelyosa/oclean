@@ -5,6 +5,7 @@ use App\Http\Controllers\BankSampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 
 use function PHPUnit\Framework\returnSelf;
@@ -59,6 +60,7 @@ Route::middleware('role:user')->group(function(){
     Route::get("/profile", function(){
         return view ('user.profile', ['title' =>'profile']);
     })->name('profile');
+    Route::post('user/shop/{produk:id}',[ShopController::class,'buy'])->name('shop.beli');
 
     // Route::get("/sampah", function(){
     //     return view ('user.sampah');
