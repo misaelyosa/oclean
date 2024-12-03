@@ -5,27 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankSampah extends Model
+class Ekosistem extends Model
 {
     use HasFactory;
-    protected $table = 'BankSampah'; 
+    protected $table = 'ekosistems';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama',
-        'totalSampah',
-        'admin',
+        'rt_rw_kec_kota',
+        'detail',
     ];
 
     public function users(){
-        return $this->belongsTo(User::class, 'admin', 'id');
-    }
-
-    public function ekosistems(){
-        return $this->belongsTo(Ekosistem::class, 'id_lokasi', 'id');
+        return $this->hasMany(User::class, 'admin', 'id');
     }
 
     public function produks(){

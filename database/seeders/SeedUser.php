@@ -16,9 +16,9 @@ class SeedUser extends Seeder
     {   
         $faker = Faker::create();
         $gender = ['female', 'male'];
-        $names = ['admin', 'bank sampah', 'peternakmaggot', 'rumah tangga'];
-        $emails = ['admin@gmail.com', 'banksampah@gmail.com', 'peternakmaggot@gmail.com', 'rumahtangga@gmail.com'];
-        $roles = [1,2,3,4];
+        $names = ['admin', 'peternakmaggot', 'rumah tangga'];
+        $emails = ['admin@gmail.com', 'peternakmaggot@gmail.com', 'rumahtangga@gmail.com'];
+        $roles = [1,3,4];
         $count= count($emails);
 
         for($i=0; $i<$count; $i++){
@@ -32,6 +32,22 @@ class SeedUser extends Seeder
                 'poin'=>0,
                 'umur'=>rand(10,80),
                 'no_telp'=>$faker->phoneNumber(),
+                'id_lokasi'=>rand(1,3),
+            ]);
+        }
+
+        for($i=0; $i<$count; $i++){
+            DB::table('users')->insert([
+                'name'=>'bankS'.strval($i),
+                'email'=>'bankS'.strval($i).'@gmail.com',
+                'role'=>2,
+                'password'=>bcrypt('password'),
+                'gender'=>$faker->randomElement($gender),
+                'alamat'=>$faker->address(),
+                'poin'=>0,
+                'umur'=>rand(10,80),
+                'no_telp'=>$faker->phoneNumber(),
+                'id_lokasi'=>rand(1,3),
             ]);
         }
     }
