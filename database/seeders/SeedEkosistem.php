@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Faker\Factory as faker;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as faker;
 
-class SeedBankSampah extends Seeder
+class SeedEkosistem extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,9 @@ class SeedBankSampah extends Seeder
     {
         $faker = Faker::create();
         for($i=0; $i<3; $i++){
-            DB::table('BankSampah')->insert([
-                'nama'=>$faker->name(),
-                'totalSampah'=>rand(10,100),
-                'admin'=>$i+1,
-                'id_lokasi'=>rand(1,3),
+            DB::table('ekosistems')->insert([
+                'rt_rw_kec_kota'=>$faker->postcode(),
+                'detail'=>$faker->address(),
             ]);
         }
     }
