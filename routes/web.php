@@ -65,8 +65,7 @@ Route::middleware('role:user')->group(function(){
     //     return view ('user.sampah');
     // })->name('sampah');
     Route::get("/sampah",[SampahController::class, 'show'])->name('user.sampah');
-
-
+    Route::post('/inputSampah', [SampahController::class, 'insert'])->name('user.inputSampah');
     Route::get('/user',[UserController::class,'index'])->name('user.index');
     Route::post('/editProfile', [RegisterController::class, 'edit'])->name('editProfile');
 });
