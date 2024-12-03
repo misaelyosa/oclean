@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PeternakController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 
@@ -78,8 +79,10 @@ Route::middleware('role: admin_bank_sampah')->group(function(){
 
 //PETERNAK MAGGOT
 Route::middleware('role:peternak_maggot')->group(function(){
-    Route::get('/peternakmaggot' , function(){
-        return view('peternak_maggot.index');
-    });
+    Route::get('/peternakmaggot',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
+    Route::get('/peternakmaggot/{id}',[PeternakController::class,'bank'])->name('bankRequestSampah.byIndex');
+    
+    Route::get('/peternakmaggot/hasil',[PeternakController::class,'produks'])->name('produk.index');
+    Route::post('/peternakmaggot/validate/{id}',[PeternakController::class,'updateStatus'])->name('bankSampah.validasi');
 });
 
