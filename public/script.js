@@ -1,20 +1,22 @@
-let lastScroll = 0;
-const navbar = document.getElementById('navbar');
+document.addEventListener('DOMContentLoaded', () => {
+  let lastScroll = 0;
+  const navbar = document.getElementById('navbar');
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-    console.log(currentScroll)
-  if (currentScroll > lastScroll) {
-    
-    // Scrolling ke bawah - sembunyikan navbar
-    navbar.classList.add('hide');
-    navbar.classList.remove('appear');
-  } else {
-    // Scrolling ke atas - tampilkan navbar
-    navbar.classList.remove('hide');
-    navbar.classList.add('appear');
+  if (!navbar) {
+    console.error('Navbar not found!');
+    return;
   }
 
-  // Update last scroll
-  lastScroll = currentScroll;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    console.log(currentScroll);
+    if (currentScroll > lastScroll) {
+      navbar.classList.add('hide');
+      navbar.classList.remove('appear');
+    } else {
+      navbar.classList.remove('hide');
+      navbar.classList.add('appear');
+    }
+    lastScroll = currentScroll;
+  });
 });
