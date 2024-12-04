@@ -23,8 +23,8 @@ use function PHPUnit\Framework\returnSelf;
 Route::get('/', function () {
     return view('home',[
         'title'=>'home'
-    ])->name('home');
-});
+    ]);
+})->name('home');
 Route::get('/home', function () {
     return view('home',[
         'title'=>'home'
