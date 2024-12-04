@@ -43,17 +43,11 @@
                     @endif
                 </li>
                 <li class="flex justify-center items-center">
-                    <a href="{{ route('produk.index') }}"
+                    <a href="{{ route('produks.index') }}"
                         class = "{{ $title === 'shop' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2  text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
                         Produk Hasil
                     </a>
                 </li>
-                {{-- <li class="flex justify-center items-center">
-                    <a href="{{ route('user.pickup') }}"
-                        class="{{ $title === 'pickup' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2  text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
-                        Kirim
-                    </a>
-                </li> --}}
                 <li class="flex items-center">
                     @if (Auth::check())
                         <form action="/logout" method="post" class="">

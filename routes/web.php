@@ -80,10 +80,14 @@ Route::middleware('role:admin_bank_sampah')->group(function(){
 
 //PETERNAK MAGGOT
 Route::middleware('role:peternak_maggot')->group(function(){
-    Route::get('/peternakmaggot',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
-    Route::get('/peternakmaggot/{id}',[PeternakController::class,'bank'])->name('bankRequestSampah.byIndex');
+    Route::get('/peternakmaggot',[PeternakController::class,'index'])->name('peternakmaggot.index');
+
+    Route::get('/peternakmaggot/sampah',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
+    Route::get('/peternakmaggot/sampah/{id}',[PeternakController::class,'bank'])->name('jumlahSampah.byIndex');
+    Route::post('/peternakmaggot/sampah/{id}', [PeternakController::class, 'requestSampah'])->name('jumlahSampah.request');
     
-    Route::get('/peternakmaggot/hasil',[PeternakController::class,'produks'])->name('produk.index');
-    Route::post('/peternakmaggot/validate/{id}',[PeternakController::class,'updateStatus'])->name('bankSampah.validasi');
+    Route::get('/peternakmaggot/hasil',[PeternakController::class,'produks'])->name('produks.index');
+    Route::get('/peternakmaggot/hasil/tambah',[PeternakController::class,'catatanProduk'])->name('catatanProduk.index');
+    Route::post('/peternakmaggot/hasil/tambah',[PeternakController::class,'catat'])->name('catatProduk.create');
 });
 

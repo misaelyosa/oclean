@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container mx-auto">
+        @if (session('success'))
+        <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+            role="alert">
+            <span class="font-medium">{{ session('success') }}</span>
+        </div>
+        @endif
         <h1 class="font-black">Dashboard Jumlah Sampah</h1>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -29,7 +35,7 @@
                                 {{ $bank->totalSampah }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('bankRequestSampah.byIndex', $bank->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Request</a>
+                                <a href="{{ route('jumlahSampah.byIndex', $bank->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Request</a>
                             </td>
                         </tr>
                     @endforeach
