@@ -18,6 +18,8 @@ class TransaksiSampah extends Model
     protected $fillable = [
         'berat',
         'status',
+        'id_user',
+        'id_bnksmph',
     ];
 
     public function users(){

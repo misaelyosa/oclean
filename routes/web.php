@@ -5,6 +5,7 @@ use App\Http\Controllers\BankSampahController;
 use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PeternakController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
@@ -88,8 +89,14 @@ Route::middleware('role:admin_bank_sampah')->group(function(){
 
 //PETERNAK MAGGOT
 Route::middleware('role:peternak_maggot')->group(function(){
-    Route::get('/peternakmaggot' , function(){
-        return view('peternak_maggot.index');
-    });
+    Route::get('/peternakmaggot',[PeternakController::class,'index'])->name('peternakmaggot.index');
+
+    Route::get('/peternakmaggot/sampah',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
+    Route::get('/peternakmaggot/sampah/{id}',[PeternakController::class,'bank'])->name('jumlahSampah.byIndex');
+    Route::post('/peternakmaggot/sampah/{id}', [PeternakController::class, 'requestSampah'])->name('jumlahSampah.request');
+    
+    Route::get('/peternakmaggot/hasil',[PeternakController::class,'produks'])->name('produks.index');
+    Route::get('/peternakmaggot/hasil/tambah',[PeternakController::class,'catatanProduk'])->name('catatanProduk.index');
+    Route::post('/peternakmaggot/hasil/tambah',[PeternakController::class,'catat'])->name('catatProduk.create');
 });
 
