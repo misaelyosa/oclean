@@ -18,7 +18,7 @@ class SeedtransaksiSampah extends Seeder
         for($i=0; $i<3; $i++){
             DB::table('TransaksiSampah')->insert([
                 'berat'=>rand(10,50),
-                'id_user'=>4,
+                'user_id'=>4,
                 'id_bnksmph'=>1,
             ]);
         }

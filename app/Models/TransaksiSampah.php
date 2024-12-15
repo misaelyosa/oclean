@@ -23,7 +23,7 @@ class TransaksiSampah extends Model
     ];
 
     public function users(){
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function BankSampah(){

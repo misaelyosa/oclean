@@ -17,6 +17,6 @@ class CatatanProduk extends Model
     ];
 
     public function Peternak(){
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

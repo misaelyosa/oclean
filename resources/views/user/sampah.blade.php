@@ -27,6 +27,9 @@
                     <th scope="col" class="px-6 py-3">
                         Status
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Bank Sampah
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +59,9 @@
                             @else
                                 <p class="text-red-500">Not Verified</p>
                             @endif
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$s->BankSampah->nama}}
                         </td>
                     </tr>
                 @endforeach
