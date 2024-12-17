@@ -105,7 +105,7 @@ Route::get('/tableuser', [UserController::class, 'showUsers'])->name('tableuser'
 Route::get('/tablepeternak', [UserController::class, 'showPeternakMaggot'])->name('tablepeternak');
 Route::get('/tableadmin', [UserController::class, 'showAdminBankSampah'])->name('tableadmin');
 
-Route::get('/create', [UserController::class, 'create'])->name('create');
+Route::get('/create', [UserController::class, 'create'])->name('user.create');
 Route::post('user/insert', [UserController::class, 'insert'])->name('user.insert');
 
 Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
