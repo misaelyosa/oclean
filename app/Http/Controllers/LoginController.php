@@ -15,6 +15,10 @@ class LoginController extends Controller
 
         if(Auth::attempt($data)){
             $request->session()->regenerate();
+            $user = Auth::user();
+            if ($user->role ==2) {
+                return redirect()->intended('/banksampah');
+            }
             return redirect()->intended('/home');
         }
         else {

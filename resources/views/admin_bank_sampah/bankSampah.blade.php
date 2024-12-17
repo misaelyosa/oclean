@@ -3,7 +3,7 @@
 @section('content')
     <div class="my-5 mx-10 px-10">
         <div id="accordion-flush" data-accordion="collapse"
-            data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            data-active-classes="bg-green-500 dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg px-5"
             data-inactive-classes="text-gray-500 dark:text-gray-400">
             <h2 id="accordion-flush-heading-1">
                 <button type="button"
@@ -22,7 +22,7 @@
                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-green-100 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         User
@@ -51,7 +51,7 @@
                                 @else
                                     @foreach ($mutasi as $transaksi)
                                         <tr
-                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-green-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $transaksi->users->name }}
@@ -107,7 +107,7 @@
                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
                                 <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    class="text-xs text-gray-700 uppercase bg-green-100 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Produk
@@ -133,7 +133,7 @@
                                     @else
                                         @foreach ($produks as $produk)
                                             <tr
-                                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-green-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                                 <th scope="row"
                                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $produk->namaProduk }}
@@ -142,7 +142,7 @@
                                                     {{ $produk->jumlah }}
                                                 </td>
                                                 <td class="px-6 py-4">
-                                                    {{ $produk->harga }}
+                                                    {{ 'Rp ' . number_format($produk->harga, 0, ',', '.') }}
                                                 </td>
                                                 <!-- Modal -->
                                                 <div id="editModal-{{ $produk->id }}"
@@ -204,7 +204,7 @@
                                                 <td class="px-6 py-4">
                                                     <a href="javascript:void(0)" onclick="openModal({{ $produk->id }})">
                                                         <button type="button"
-                                                            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+                                                            class="focus:outline-none text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-green-900">
                                                             Edit
                                                         </button>
                                                     </a>
@@ -235,7 +235,7 @@
                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-green-100 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         User
@@ -264,7 +264,7 @@
                                 @else
                                     @foreach ($penjualan as $transaksi)
                                         <tr
-                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-green-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $transaksi->users->name }}
@@ -276,10 +276,10 @@
                                                 {{ $transaksi->jumlah }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $transaksi->harga }}
+                                                {{ 'Rp ' . number_format($transaksi->harga, 0, ',', '.') }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $transaksi->total }}
+                                                {{ 'Rp ' . number_format($transaksi->total, 0, ',', '.') }}
                                             </td>
                                         </tr>
                                     @endforeach
