@@ -11,7 +11,7 @@
     <title>O-Clean | {{ $title }}</title>
 </head>
 
-<body>
+<body class="bg-shop h-full">
     @include('includes.peternakNav')
     <div class="mt-10 pt-5">
         <div class="mt-10">
