@@ -18,10 +18,12 @@ class TransaksiSampah extends Model
     protected $fillable = [
         'berat',
         'status',
+        'user_id',
+        'id_bnksmph',
     ];
 
     public function users(){
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function BankSampah(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BankSampah;
 use App\Models\Sampah;
+use App\Models\TransaksiSampah;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,8 @@ class SampahController extends Controller
         $id = Auth::user()->id;
         $user = User::findOrFail($id);
 
-        $sampah = $user->sampah;
-
+        $sampah = $user->transaksiSampah;
+        // dd($sampah);
         $title = "sampah";
 
         return view('user.sampah', compact('sampah', 'title'));

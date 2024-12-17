@@ -2,7 +2,7 @@
     class="bg-white fixed dark:bg-gray-900 max-w-6xl mx-auto top-0 left-0 right-0 rounded-xl mt-2 border-2 border-gray-200 dark:border-gray-600 shadow-md">
     <div class=" flex flex-wrap items-center justify-between ">
         <!-- Logo dan Welcome Text -->
-        <a href="{{ route('user.index') }}" class="flex items-center space-x-2 rtl:space-x-reverse ms-4">
+        <a href="{{ route('jumlahSampah.index') }}" class="flex items-center space-x-2 rtl:space-x-reverse ms-4">
             <img src="{{ asset('oclean-logo.png') }}" class="h-8 " alt="Logo">
             @if (Auth::check())
                 <span class="text-2xl font-semibold whitespace-nowrap dark:text-white">Welcome,
@@ -31,9 +31,9 @@
                 class="mb-4 me-4 my-4 flex flex-col justify-center items-center font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-2 md:flex-row md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                 <li class="flex justify-center items-center">
                     @if (Auth::check())
-                        <a href="{{ route('bankSampah.index', 'home') }}"
+                        <a href="{{ route('jumlahSampah.index') }}"
                             class=" {{ $title === 'home' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2 text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
-                            Home
+                            Bank Sampah
                         </a>
                     @else
                         <a href="{{ route('home') }}"
@@ -41,6 +41,12 @@
                             Home
                         </a>
                     @endif
+                </li>
+                <li class="flex justify-center items-center">
+                    <a href="{{ route('produks.index') }}"
+                        class = "{{ $title === 'shop' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2  text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
+                        History Produk
+                    </a>
                 </li>
                 <li class="flex items-center">
                     @if (Auth::check())
