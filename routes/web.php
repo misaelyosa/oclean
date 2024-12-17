@@ -78,6 +78,17 @@ Route::middleware('role:superadmin')->group(function(){
     Route::get('/superadmin', function() {
         return view('superadmin.index');
     });
+    Route::get('/tableuser', [UserController::class, 'showUsers'])->name('tableuser');
+    Route::get('/tablepeternak', [UserController::class, 'showPeternakMaggot'])->name('tablepeternak');
+    Route::get('/tableadmin', [UserController::class, 'showAdminBankSampah'])->name('tableadmin');
+
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('user/insert', [UserController::class, 'insert'])->name('user.insert');
+
+    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('user/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+    Route::delete('user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 });
 
 //ADMIN BANK SAMPAH
@@ -99,17 +110,3 @@ Route::middleware('role:peternak_maggot')->group(function(){
     Route::get('/peternakmaggot/hasil/tambah',[PeternakController::class,'catatanProduk'])->name('catatanProduk.index');
     Route::post('/peternakmaggot/hasil/tambah',[PeternakController::class,'catat'])->name('catatProduk.create');
 });
-
-//======================================= SUPERADMIN ==================================================
-Route::get('/tableuser', [UserController::class, 'showUsers'])->name('tableuser');
-Route::get('/tablepeternak', [UserController::class, 'showPeternakMaggot'])->name('tablepeternak');
-Route::get('/tableadmin', [UserController::class, 'showAdminBankSampah'])->name('tableadmin');
-
-Route::get('/create', [UserController::class, 'create'])->name('user.create');
-Route::post('user/insert', [UserController::class, 'insert'])->name('user.insert');
-
-Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-Route::put('user/update/{id}', [UserController::class, 'update'])->name('user.update');
-
-Route::delete('user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
-//=====================================================================================================
