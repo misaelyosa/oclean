@@ -1,6 +1,7 @@
 @extends('base.base')
 
 @section('content')
+<!-- HALO -->
     <div id="content" class="dark bg-white dark:bg-green-900 min-h-screen">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
