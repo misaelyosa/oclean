@@ -16,7 +16,6 @@ class PeternakController extends Controller
 
     public function sampahs(){
         $banksampah = BankSampah::where('id_lokasi', Auth::user()->id_lokasi)->get();
-        // $banksampah = BankSampah::where('id_lokasi', 1)->get();
         return view('peternak_maggot.jumlahSampah', ['title'=>'Bank Sampah', 'banks'=>$banksampah]);
     }
 
@@ -32,10 +31,10 @@ class PeternakController extends Controller
     
     public function requestSampah(Request $request, $id_bank){
         $validatedData = $request->validate([
-            'berat' => 'required|max:255'
+            'berat' => 'required|integer|min:1'
         ]);
         
-        $validatedData['id_user'] = Auth::user()->id;
+        $validatedData['user_id'] = Auth::user()->id;
         $validatedData['id_bnksmph'] = $id_bank;
         
         TransaksiSampah::create($validatedData);
@@ -56,7 +55,7 @@ class PeternakController extends Controller
 
     public function catat(Request $request){
         $validatedData = $request->validate([
-            'berat' => 'required|max:255',
+            'berat' => 'required|integer',
             'detail' => 'max:255'
         ]);
         
