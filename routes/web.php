@@ -89,7 +89,7 @@ Route::middleware('role:admin_bank_sampah')->group(function(){
 
 //PETERNAK MAGGOT
 Route::middleware('role:peternak_maggot')->group(function(){
-    Route::get('/peternakmaggot',[PeternakController::class,'index'])->name('peternakmaggot.index');
+    Route::get('/peternakmaggot',[PeternakController::class,'sampahs'])->name('peternakmaggot.index');
 
     Route::get('/peternakmaggot/sampah',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
     Route::get('/peternakmaggot/sampah/{id}',[PeternakController::class,'bank'])->name('jumlahSampah.byIndex');
