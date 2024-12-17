@@ -44,7 +44,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
         exclude: | # Addind this part ensures node_modules will be deployed for the app to run
-          */.git/**
+          **/.git/**
           **/.gitignore
           **/.env.example
           **/.editorconfig
