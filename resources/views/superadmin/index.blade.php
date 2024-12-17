@@ -1,24 +1,11 @@
 @extends('base.base')
 
 @section('content')
-<!-- HALO -->
     <div id="content" class="dark bg-white dark:bg-green-900 min-h-screen">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="dark:text-white text-sm font-semibold leading-6 text-green-900">Location</a>
                     <a href="#" class="dark:text-white text-sm font-semibold leading-6 text-green-900">Log Out</a>
-                </div>
-                <div class="flex items-center">
-                    <input type="text" placeholder="Search daerah..." class="border rounded-md p-2 mr-4" />
-                    <div class="flex lg:hidden">
-                        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
-                        </button>
-                    </div>
                 </div>
             </nav>
         </header>
@@ -31,8 +18,8 @@
                 <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                 </div>
                 <div class="text-center">
-                    <h1 class="dark:text-white text-4xl font-bold tracking-tight text-green-900 sm:text-6xl">Jawa Timur, Surabaya</h1>
-                    <p class="dark:text-white mt-6 text-lg leading-8 text-green-700">Jl pandean gang 6 No.4, RT.13/RW.4, Ngingas, Kec. Waru, Kabupaten Sidoarjo, Jawa Timur 61256</p>
+                    <h1 class="dark:text-white text-4xl font-bold tracking-tight text-green-900 sm:text-6xl">Super Admin Control</h1>
+                    <p class="dark:text-white mt-6 text-lg leading-8 text-green-700">Disini superadmin bisa melakukan penambahan data, penghapusan data, dan perubahan data dari <br> baik user, admin, maupun peternak</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
                     </div>
                 </div>
@@ -43,7 +30,7 @@
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2">USER</div>
                             <p class="text-gray-700 text-base">
-                                User adalah konsumen yang memanfaatkan aplikasi O-Clean.
+                                User atau pengguna adalah konsumen yang memberikan informasi sampah dan memanfaatkan aplikasi O-Clean.
                             </p>
                         </div>
                         <div class="px-6 py-4">
@@ -56,7 +43,7 @@
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2">ADMIN</div>
                             <p class="text-gray-700 text-base">
-                                Admin adalah jembatan yang mengatur dan memanajemen aplikasi O-Clean.
+                                Admin adalah jembatan dari user dan peternak yang mengatur/memanajemen sampah dan produk dari aplikasi O-Clean.
                             </p>
                         </div>
                         <div class="px-6 py-4">
@@ -69,7 +56,7 @@
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2">PETERNAK</div>
                             <p class="text-gray-700 text-base">
-                                Peternak adalah produsen yang menerima dan memberikan produk dari aplikasi O-Clean.
+                                Peternak atau peternak maggot adalah produsen yang menerima, mengolah dan memberikan produk dari aplikasi O-Clean.
                             </p>
                         </div>
                         <div class="px-6 py-4">
@@ -77,7 +64,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
