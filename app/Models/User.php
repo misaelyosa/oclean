@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function TransaksiSampah(){
-        return $this->hasMany(TransaksiSampah::class, 'id_user', 'id');
+        return $this->hasMany(TransaksiSampah::class, 'user_id', 'id');
     }
 
     // public function sampahs(){
@@ -72,11 +72,11 @@ class User extends Authenticatable
     // }
 
     public function TransaksiProduk(){
-        return $this->hasMany(TransaksiProduk::class, 'id_user', 'id');
+        return $this->hasMany(TransaksiProduk::class, 'user_id', 'id');
     }
 
     public function CatatanProduk(){
-        return $this->hasMany(CatatanProduk::class, 'id_user', 'id');
+        return $this->hasMany(CatatanProduk::class, 'user_id', 'id');
     }
     
     public function sampah(){

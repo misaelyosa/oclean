@@ -37,6 +37,6 @@ class BankSampah extends Model
     }
 
     public function TransaksiProduk(){
-        return $this->hasMany(TransaksiProduk::class, 'id_user', 'id');
+        return $this->hasMany(TransaksiProduk::class, 'user_id', 'id');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sampah;
+use App\Models\TransaksiSampah;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,8 @@ class SampahController extends Controller
         $id = Auth::user()->id;
         $user = User::findOrFail($id);
 
-        $sampah = $user->sampah;
-
+        $sampah = $user->transaksiSampah;
+        // dd($sampah);
         $title = "sampah";
 
         return view('user.sampah', compact('sampah', 'title'));
@@ -29,8 +30,9 @@ class SampahController extends Controller
             'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
-        $sampah = new Sampah;
+        $sampah = new TransaksiSampah;
         $sampah->user_id = $id;
+        $sampah->id_bnksmph = 1;
         $sampah->berat = $r->berat;
 
         $imageName = time().'.'.$r->foto->extension();
