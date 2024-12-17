@@ -42,10 +42,14 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # local-dir: ./
-        # dangerous-clean-slate: true
+        local-dir: ./
+        dangerous-clean-slate: false
+        parallel: 10
         exclude: | # Addind this part ensures node_modules will be deployed for the app to run
           */.git
           */.git/**
           **/.env.example
           **/.editorconfig
+          **/node_modules/**
+          **/vendor/**
+        
