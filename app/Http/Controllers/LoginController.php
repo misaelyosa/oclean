@@ -20,6 +20,9 @@ class LoginController extends Controller
                 case 'peternak_maggot':
                     return redirect()->intended('/peternakmaggot');
                     break;
+                case 'admin_bank_sampah':
+                    return redirect()->intended('/banksampah');
+                    break;
                 default:
                     return redirect()->intended('/home');
             }
