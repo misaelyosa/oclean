@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BankSampah;
 use App\Models\Sampah;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,15 +24,20 @@ class SampahController extends Controller
 
     public function insert(Request $r){
         $id = Auth::user()->id;
+        // $user_lokasi = Auth::user()->id_lokasi;
+        // dd($user_lokasi);
 
         $r->validate([
             'berat' => 'required|numeric',
             'foto' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
-        $sampah = new Sampah;
+        $sampah = new TransaksiSampah;
+        $bank = BankSampah::where('id_lokasi', Auth::user()->id_lokasi)->first();
         $sampah->user_id = $id;
+        $sampah->id_bnksmph = $bank->id;
         $sampah->berat = $r->berat;
+
 
         $imageName = time().'.'.$r->foto->extension();
         $r->foto->move(public_path('foto_sampah'), $imageName);
