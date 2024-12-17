@@ -43,8 +43,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        dangerous-clean-slate: false
-        parallel: 10
+        dangerous-clean-slate: true
         exclude: | # Addind this part ensures node_modules will be deployed for the app to run
           */.git
           */.git/**
