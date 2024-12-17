@@ -1,6 +1,5 @@
 name: Auto Deploy Website on Push
 
-
 on:
   push: # This triggers the script to run on every push to the main branch
     branches:
@@ -27,20 +26,20 @@ jobs:
     - name: Installing Composer
       run: |
         curl -sS https://getcomposer.org/installer | php
-        sudo mv composer.phar /usr/local/bin/composer
+        sudo mv composer.phar /usr/local/bin/compose
     - name: Installing PHP dependencies
       run: composer install
 
     - name: Installing Node dependencies
       run: |
-        npm install
+        npm i
         npm run build
       
     - name: Deploying project # copy files to specified FTP directory
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
+        username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         exclude: | # Addind this part ensures node_modules will be deployed for the app to run
           */.git
