@@ -26,10 +26,10 @@ class RegisterController extends Controller
 
         $validatedData['password'] = bcrypt($validatedData['password']);
        
+        
         $user = User::create($validatedData);
-
         $role = null;
-
+        
         if($validatedData['role'] === 'User'){
             $role = 'user';
         } elseif ($validatedData['role'] === 'Peternak Maggot'){
@@ -37,14 +37,14 @@ class RegisterController extends Controller
         } elseif ($validatedData['role'] === 'Bank Sampah'){
             $role = 'admin_bank_sampah';
         }
-
+        
         if($role!=null){
             Roles::create([
                 'user_id' => $user->id,
                 'role' => $role,
             ]);
         }
-        // dd([$validatedData , $role]);
+        dd([$validatedData , $role]);
 
         return redirect('/login')->with('success', 'User Berhasil Ditambahkan, Silahkan Login');
     }
