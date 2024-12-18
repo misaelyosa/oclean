@@ -26,5 +26,6 @@ module.exports = {
     require('flowbite/plugin'),
    
   ],
+  darkMode:'selector'
 }
 
