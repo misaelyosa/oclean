@@ -36,9 +36,9 @@ class BankSampahController extends Controller
         $validated = $request->validate([
             'status' => 'required|boolean',
         ]);
-        $transaksi = TransaksiSampah::find($id);
-        $bank = BankSampah::find($transaksi->id_bnksmph);
-        $user = User::find($transaksi->id_user);
+        $transaksi = TransaksiSampah::with('users')->where('id', $id)->first();
+        $bank = BankSampah::where('id', $transaksi->id_bnksmph)->first();
+        $user = User::find($transaksi->user_id);
         if ($transaksi && $bank && $user) {
             $transaksi->status = $validated['status'];
             $transaksi->save();

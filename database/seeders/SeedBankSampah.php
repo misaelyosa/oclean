@@ -19,7 +19,7 @@ class SeedBankSampah extends Seeder
             DB::table('BankSampah')->insert([
                 'nama'=>$faker->name(),
                 'totalSampah'=>rand(10,100),
-                'admin'=>$i+1,
+                'admin'=>$i+4,
                 'id_lokasi'=>rand(1,3),
             ]);
         }

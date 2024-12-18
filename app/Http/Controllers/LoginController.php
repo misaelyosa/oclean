@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,16 @@ class LoginController extends Controller
 
         if(Auth::attempt($data)){
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+            switch (Roles::where('id', Auth::user()->role)->first()->role) {
+                case 'peternak_maggot':
+                    return redirect()->intended('/peternakmaggot');
+                    break;
+                case 'admin_bank_sampah':
+                    return redirect()->intended('/banksampah');
+                    break;
+                default:
+                    return redirect()->intended('/home');
+            }
         }
         else {
             return back()->withErrors([

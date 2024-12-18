@@ -22,6 +22,7 @@ return new class extends Migration
             
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('id_bnksmph');
+            
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('id_bnksmph')->references('id')->on('BankSampah');
             $table->timestamps();

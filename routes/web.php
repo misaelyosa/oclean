@@ -6,9 +6,11 @@ use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PeternakController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
+use Database\Seeders\SeedProduk;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -96,11 +98,12 @@ Route::middleware('role:admin_bank_sampah')->group(function(){
     Route::get('/banksampah',[BankSampahController::class,'index'])->name('bankSampah.index');
     Route::get('/banksampah/{id}',[BankSampahController::class,'BankID'])->name('bankSampah.byIndex');
     Route::post('/banksampah/validate/{id}',[BankSampahController::class,'updateStatus'])->name('bankSampah.validasi');
+    Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
 });
 
 //PETERNAK MAGGOT
 Route::middleware('role:peternak_maggot')->group(function(){
-    Route::get('/peternakmaggot',[PeternakController::class,'index'])->name('peternakmaggot.index');
+    Route::get('/peternakmaggot',[PeternakController::class,'sampahs'])->name('peternakmaggot.index');
 
     Route::get('/peternakmaggot/sampah',[PeternakController::class,'sampahs'])->name('jumlahSampah.index');
     Route::get('/peternakmaggot/sampah/{id}',[PeternakController::class,'bank'])->name('jumlahSampah.byIndex');

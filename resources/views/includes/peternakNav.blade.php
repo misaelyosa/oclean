@@ -33,7 +33,7 @@
                     @if (Auth::check())
                         <a href="{{ route('jumlahSampah.index') }}"
                             class=" {{ $title === 'home' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2 text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
-                            Jumlah Sampah
+                            Bank Sampah
                         </a>
                     @else
                         <a href="{{ route('home') }}"
@@ -45,7 +45,7 @@
                 <li class="flex justify-center items-center">
                     <a href="{{ route('produks.index') }}"
                         class = "{{ $title === 'shop' ? 'text-green-700 dark:text-green-500' : 'text-gray-900 dark:text-gray-400' }} block py-1 px-2  text-center rounded hover:bg-green-700 hover:text-white md:hover:bg-transparent md:hover:text-green-700 dark:hover:bg-gray-700 md:dark:hover:text-green-500">
-                        Produk Hasil
+                        History Produk
                     </a>
                 </li>
                 <li class="flex items-center">
