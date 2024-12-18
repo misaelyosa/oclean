@@ -40,9 +40,7 @@ Route::get('/home', function () {
 
 Route::middleware('guest')->group(function(){
     //register
-    Route::get('/register', function () {
-        return view('register.index');
-    });
+    Route::get('/register', [RegisterController::class, 'fetch']);
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
     
     //login

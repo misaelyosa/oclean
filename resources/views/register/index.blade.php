@@ -37,6 +37,33 @@
                     @enderror
                     </div>
 
+                    <!-- dropdown pilih id_lokasi -->
+                    <div>
+                        <button id="dropdownSelectid_lokasi" data-dropdown-toggle="dropdownid_lokasi" class="w-full relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Daftar pada id_lokasi
+                            <svg class="w-2.5 h-2.5 ms-3 absolute right-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+
+                        <input type="hidden" name="id_lokasi" id="id_lokasi" value="{{ old('id_lokasi') }}" required>
+                        
+                        <div id="dropdownid_lokasi" class="z-10 hidden bg-white  divide-y divide-gray-100 rounded-lg shadow w-72 md:w-96 dark:bg-gray-700" >
+                            @foreach ($id_lokasi as $e )
+                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSelectid_lokasi">
+                                <li>
+                                    <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="selectid_lokasi({{ $e->id }}, `{{ addslashes($e->detail) }}`)">{{$e->detail}}</a>
+                                </li>
+                             </ul>
+                            @endforeach
+                        </div>
+
+                        @error('id_lokasi')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-red-500 text-sm mt-1">Please select your id_lokasi again</p>
+                        @enderror   
+                    </div>
+                    
+
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Age:</label>
                         <div class="relative flex items-center max-w-[8rem]">
@@ -149,7 +176,7 @@
 
 
 @section('script')
-<!-- <script>
+<script>
     function selectGender(value) {
         document.getElementById('gender').value = value;
         // console.log(value)
@@ -163,5 +190,12 @@
         document.getElementById('dropdownSelectRole').innerText = `Selected: ${value}`;
         document.getElementById('dropdownRole').classList.add('hidden');
     }
-</script> -->
+
+    function selectid_lokasi(value, text) {
+        document.getElementById('id_lokasi').value = value;
+        console.log(value)
+        document.getElementById('dropdownSelectid_lokasi').innerText = `Selected: ${text}`;
+        document.getElementById('dropdownid_lokasi').classList.add('hidden');
+    }
+</script>
 @endsection

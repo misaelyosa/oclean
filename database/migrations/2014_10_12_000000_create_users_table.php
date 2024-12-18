@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->unsignedBigInteger('role');
+            $table->unsignedBigInteger('role')->nullable();
             $table->foreign('role')->references('id')->on('roles');
             $table->unsignedBigInteger('id_lokasi');
             $table->foreign('id_lokasi')->references('id')->on('ekosistems');

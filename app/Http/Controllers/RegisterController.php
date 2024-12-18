@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Ekosistem;
 use DB;
 
 use Illuminate\Http\Request;
@@ -21,31 +22,57 @@ class RegisterController extends Controller
             'umur' => 'required|max:2',
             'gender' => 'required',
             'role' => 'required',
+            'id_lokasi'=>'required'
         ]);
         
 
+
+        // $validatedData['password'] = bcrypt($validatedData['password']);
+        // // dd($validatedData);
+        // $user = User::create($validatedData);
+        
         $validatedData['password'] = bcrypt($validatedData['password']);
-       
-        $user = User::create($validatedData);
-
+        
+        // Create a new user instance
+        $user = new User;
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = $validatedData['password'];
+        $user->alamat = $validatedData['alamat'];
+        $user->no_telp = $validatedData['no_telp'];
+        $user->umur = $validatedData['umur'];
+        $user->gender = $validatedData['gender'];
         $role = null;
-
-        if($validatedData['role'] === 'User'){
+        
+        if ($validatedData['role'] === 'User') {
             $role = 'user';
-        } elseif ($validatedData['role'] === 'Peternak Maggot'){
+        } elseif ($validatedData['role'] === 'Peternak Maggot') {
             $role = 'peternak_maggot';
-        } elseif ($validatedData['role'] === 'Bank Sampah'){
+        } elseif ($validatedData['role'] === 'Bank Sampah') {
             $role = 'admin_bank_sampah';
         }
+        
+        $user->id_lokasi = $validatedData['id_lokasi'];
+        $user->poin = 0; 
+        $user->save(); 
 
-        if($role!=null){
-            Roles::create([
-                'user_id' => $user->id,
-                'role' => $role,
-            ]);
+        if ($role !== null) {
+            $lore = new Roles;
+            $lore->user_id = $user->id;
+            $lore->role = $role;
+            $lore->save();
+
+            // Roles::create([
+            //     'user_id' => $user->id,
+            //     'role' => $role,
+            // ]);
         }
-        // dd([$validatedData , $role]);
 
+        $user->role = $lore->id;
+        $user->save();
+
+        
+        // Redirect with success message
         return redirect('/login')->with('success', 'User Berhasil Ditambahkan, Silahkan Login');
     }
 
@@ -85,5 +112,11 @@ class RegisterController extends Controller
         $user->save();
     
         return redirect()->route('profile')->with('success', 'Profile updated successfully!');
+    }
+
+    public function fetch(){
+
+        $ekosistem = Ekosistem::get();
+        return view('register.index')->with('id_lokasi', $ekosistem);
     }
 }
