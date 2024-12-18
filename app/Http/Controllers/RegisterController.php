@@ -59,14 +59,14 @@ class RegisterController extends Controller
                 Rule::unique('users')->ignore($r->uid),
             ],
             'alamat' => 'required|max:255',
-            'no_telp' => 'required|max:14|min:11',
+            'no_telp' => 'required|max:20|min:11',
             'umur' => 'required|integer|min:1|max:99',
             'gender' => 'required',
         ]);
     
         $user = User::findOrFail($r->uid);
     
-        // Update the user's details
+        
         $user->name = $r->name;
         $user->email = $r->email;
         $user->alamat = $r->alamat;
@@ -74,7 +74,7 @@ class RegisterController extends Controller
         $user->umur = $r->umur;
         $user->gender = $r->gender;
     
-        // Only update the password if a new password is provided
+        
         if ($r->filled('password')) {
             $validatedPassword = $r->validate([
                 'password' => 'required|confirmed',

@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('TransaksiSampah', function (Blueprint $table) {
             $table->id();
-            $table->integer('berat');
+            // $table->integer('berat');
             $table->boolean('status')->nullable()->default(false);
-            $table->unsignedBigInteger('id_user');
+            $table->integer("berat");
+            $table->string("foto")->nullable();
+            // $table->boolean("verified")->default(false);
+            // $table->bigInteger("admin_id");
+            
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('id_bnksmph');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('id_bnksmph')->references('id')->on('BankSampah');
             $table->timestamps();
         });
