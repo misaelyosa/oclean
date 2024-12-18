@@ -1,4 +1,4 @@
-@extends('base.homebase')
+@extends('base.superbase')
 
 @section('content')
 <div class="dark bg-white dark:bg-green-900 min-h-screen px-6 py-10">
@@ -19,11 +19,17 @@
                 <input type="number" class="form-control rounded-md border border-gray-300 p-2 w-full" id="umur" name="umur" required>
             </div>
             <div class="mb-4">
-                <label for="gender" class="form-label text-white">Jenis Kelamin</label>
-                <select class="form-select rounded-md border border-gray-300 p-2 w-full" id="gender" name="gender" required>
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
+                <label class="form-label text-white">Jenis Kelamin</label>
+                <div class="flex space-x-6">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-green-500" name="gender" value="Laki-laki" required>
+                        <span class="ml-2 text-white">Laki-laki</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-green-500" name="gender" value="Perempuan" required>
+                        <span class="ml-2 text-white">Perempuan</span>
+                    </label>
+                </div>
             </div>
             <div class="mb-4">
                 <label for="no_telp" class="form-label text-white">No. Telepon</label>
@@ -38,14 +44,22 @@
                 <input type="number" class="form-control rounded-md border border-gray-300 p-2 w-full" id="id_lokasi" name="id_lokasi" required>
             </div>
             <div class="mb-4">
-                <label for="role" class="form-label text-white">Role</label>
-                <select class="form-select rounded-md border border-gray-300 p-2 w-full" id="role" name="role" required>
-                    <option value="2">Admin Bank Sampah</option>
-                    <option value="3">Peternak Maggot</option>
-                    <option value="4">Users</option>
-                </select>
+                <label class="form-label text-white">Role</label>
+                <div class="flex space-x-6">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-green-500" name="role" value="2" required>
+                        <span class="ml-2 text-white">Admin Bank Sampah</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-green-500" name="role" value="3" required>
+                        <span class="ml-2 text-white">Peternak Maggot</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-green-500" name="role" value="4" required>
+                        <span class="ml-2 text-white">Users</span>
+                    </label>
+                </div>
             </div>
-
             <div class="mb-4">
                 <label for="email" class="form-label text-white">Email</label>
                 <input type="email" class="form-control rounded-md border border-gray-300 p-2 w-full" id="email" name="email" required>

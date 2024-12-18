@@ -1,11 +1,11 @@
-@extends('base.homebase')
+@extends('base.superbase')
 
 @section('content')
     <div id="content" class="dark bg-white dark:bg-green-900 min-h-screen">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="dark:text-white text-sm font-semibold leading-6 text-green-900">Log Out</a>
+                    <a href="/" class="dark:text-white text-sm font-semibold leading-6 text-green-900">Log Out</a>
                 </div>
             </nav>
         </header>
@@ -18,7 +18,7 @@
                 <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                 </div>
                 <div class="text-center">
-                    <h1 class="dark:text-white text-4xl font-bold tracking-tight text-green-900 sm:text-6xl">Super Admin Control</h1>
+                    <h1 class="dark:text-white text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Super Admin Control</h1>
                     <p class="dark:text-white mt-6 text-lg leading-8 text-green-700">Disini superadmin bisa melakukan penambahan data, penghapusan data, dan perubahan data dari <br> baik user, admin, maupun peternak</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
                     </div>

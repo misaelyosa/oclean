@@ -1,8 +1,8 @@
-@extends('base.homebase')
+@extends('base.superbase')
 
 @section('content')
     <div class="dark bg-white dark:bg-green-900 min-h-screen px-6 py-10">
-        <a href="/" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 text-lg rounded">Back</a>
+        <a href="superadmin" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 text-lg rounded">Back</a>
         <div class="text-center">
             <h1 class="dark:text-white text-4xl font-bold tracking-tight text-green-900 sm:text-6xl">TABEL ADMIN</h1>
             <p class="mt-4 text-gray-50">Tabel Admin menampilkan daftar admin yang terdaftar dalam aplikasi O-Clean. <br> Anda dapat melihat informasi kontak mereka.</p>
