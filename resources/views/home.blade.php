@@ -3,15 +3,29 @@
 @section('content')
     <header>
         @if (Auth::check())
-            @if (Auth::user()->role == 1)
-                    <div><a href="/superadmin">Go to Superadmin Dashboard </a></div>
-                @elseif (Auth::user()->role == 2)
-                    <div><a href="{{route('bankSampah.index')}}">Go to Admin Bank Sampah Dashboard </a></div> 
-                @elseif (Auth::user()->role == 3)
-                    <div><a href="{{route('peternakmaggot.index')}}">Go to Peternak Maggot Dashboard </a></div>
-                @elseif (Auth::user()->role == 4)
-                    <div><a href="{{route('user.index')}}">Go to User Page </a></div>
+        @if (Auth::user()->role)
+            @php
+                $role = Auth::user()->roles; // Get the role record
+            @endphp
+
+            @if ($role[0])
+                @switch($role[0]->role) {{-- Assuming `role` is the field that contains the role name --}}
+                    @case('superadmin')
+                        <div><a href="/superadmin">Go to Superadmin Dashboard </a></div>
+                        @break
+                    @case('admin_bank_sampah')
+                        <div><a href="{{ route('bankSampah.index') }}">Go to Admin Bank Sampah Dashboard </a></div>
+                        @break
+                    @case('peternak_maggot')
+                        <div><a href="{{ route('peternakmaggot.index') }}">Go to Peternak Maggot Dashboard </a></div>
+                        @break
+                    @case('user')
+                        <div><a href="{{ route('user.index') }}">Go to User Page </a></div>
+                        @break
+                @endswitch
             @endif
+        @endif
+
             <div style="display: flex; align-items: center; gap: 10px;">
                 <span>Welcome, {{ Auth::user()->name }}</span>
                 <form action="/logout" method="POST" style="display: inline;">
