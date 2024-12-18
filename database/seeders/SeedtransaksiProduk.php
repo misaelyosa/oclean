@@ -23,7 +23,7 @@ class SeedtransaksiProduk extends Seeder
                 'harga'=>$harga,
                 'total'=>$jum * $harga,
                 'id_bnksmph'=>1,
-                'user_id'=>4,
+                'id_user'=>3,
                 'id_produk'=>rand(1,3),
             ]);
         }

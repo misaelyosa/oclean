@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    @include('navbar.BankSampahNav')
+    @include('includes.BankSampahNav')
     <div class="mt-10 pt-5">
         <div class="mt-10">
             @yield('content')
