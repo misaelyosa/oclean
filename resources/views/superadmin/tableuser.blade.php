@@ -1,4 +1,4 @@
-@extends('base.base')
+@extends('base.homebase')
 
 @section('content')
     <div class="dark bg-white dark:bg-green-900 min-h-screen px-6 py-10">

@@ -77,9 +77,9 @@ Route::middleware('role:user')->group(function(){
 
 //SUPERADMIN
 Route::middleware('role:superadmin')->group(function(){
-    Route::get('/superadmin', function() {
+    Route::get('/superadmin', function () {
         return view('superadmin.index');
-    });
+    })->name('superadmin');
     Route::get('/tableuser', [UserController::class, 'showUsers'])->name('tableuser');
     Route::get('/tablepeternak', [UserController::class, 'showPeternakMaggot'])->name('tablepeternak');
     Route::get('/tableadmin', [UserController::class, 'showAdminBankSampah'])->name('tableadmin');

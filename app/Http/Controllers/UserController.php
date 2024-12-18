@@ -55,25 +55,25 @@ class UserController extends Controller
     public function showUsers()
     {
         $users = User::where('role', 4)->get();
-        return view('tableuser', ['users' => $users]);
+        return view('superadmin/tableuser', ['users' => $users]);
     }
     
     public function showPeternakMaggot()
     {
         $users = User::where('role', 3)->get();
-        return view('tableuser', ['users' => $users]);
+        return view('superadmin/tableuser', ['users' => $users]);
     }
 
     public function showAdminBankSampah()
     {
         $users = User::where('role', 2)->get();
-        return view('tableuser', ['users' => $users]);
+        return view('superadmin/tableuser', ['users' => $users]);
     }
 
     public function create()
     {
         $users = User::get();
-        return view('create')->with('users', $users);
+        return view('superadmin/create')->with('users', $users);
     }
 
     public function insert(Request $r)
@@ -110,7 +110,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id); 
-        return view('edit', compact('user'));
+        return view('superadmin/edit', compact('user'));
     }
 
     public function update(Request $request, $id)
