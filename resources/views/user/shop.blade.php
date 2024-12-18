@@ -108,7 +108,7 @@
                                                 d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
                                         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin membeli produk ini seharga <span class="text-green-500">{{ $p->harga }} * {{$p-> jumlah}} = {{$p->harga * $p->jumlah}}</span> poin </h3>
-                                        @if (auth()->user()->poin < $p->harga)
+                                        @if (auth()->user()->poin < $p->harga * $p->jumlah)
                                         <p class="mb-5 text-sm font-normal text-red-500 dark:text-red-400">Warning : poin tidak mencukupi, poin anda {{auth()->user()->poin}}</p>
                                         @endif
                                         <form action="{{route('shop.beli',$p->id)}}" method="POST">
