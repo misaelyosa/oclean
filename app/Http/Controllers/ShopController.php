@@ -16,13 +16,14 @@ class ShopController extends Controller
 {
     public function buy(Produk $produk){
         // $userId = Auth::id();
-            if(Auth::user()->poin < 150){
+            if(Auth::user()->poin < $produk->harga){
                 return back()->with('poin',"Poin Tidak Cukup");
             }
             // $currentPoin = DB::table('users')->where('id', $userId);
 
             $user = Auth::user();
-            $user->poin = $user->poin - 150;
+            $total = $produk->harga * $produk->jumlah;
+            $user->poin = $user->poin - $total;
             // Simpan perubahan ke database
             $user->save();
 

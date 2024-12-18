@@ -78,7 +78,7 @@
                         <button data-modal-target="popup-modal-{{$p->id}}" data-modal-toggle="popup-modal-{{$p->id}}"
                             class="w-full mx-4 text-center text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm  py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                             type="button">
-                            150 Poin
+                            {{ $p->harga }}
                         </button>
                     </div>
                 </div>
@@ -107,8 +107,8 @@
                                                 stroke-width="2"
                                                 d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
-                                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin membeli produk ini seharga <span class="text-green-500">150</span> poin / Rp. <span class="text-red-500">{{number_format($p->harga, 0, ',', '.')}}</span></h3>
-                                        @if (auth()->user()->poin < 150)
+                                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin membeli produk ini seharga <span class="text-green-500">{{ $p->harga }} * {{$p-> jumlah}} = {{$p->harga * $p->jumlah}}</span> poin </h3>
+                                        @if (auth()->user()->poin < $p->harga)
                                         <p class="mb-5 text-sm font-normal text-red-500 dark:text-red-400">Warning : poin tidak mencukupi, poin anda {{auth()->user()->poin}}</p>
                                         @endif
                                         <form action="{{route('shop.beli',$p->id)}}" method="POST">
