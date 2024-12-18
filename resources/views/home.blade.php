@@ -31,8 +31,9 @@
     <section class="first">
         <div class="outer">
             <div class="inner">
-                <div class="bg-home">
-                    <h2 class="section-heading">Scroll down</h2>
+                <div class="bg-home" style="flex-direction: column;">
+                    <h2 class="section-heading">O-Clean</h2>
+                    <h3 class="section-heading" style="margin-top: 0;">from organics to economics</h3>
                 </div>
             </div>
         </div>
@@ -40,8 +41,9 @@
     <section class="second">
         <div class="outer">
             <div class="inner">
-                <div class="bg-home">
-                    <h2 class="section-heading">Animated with GSAP</h2>
+                <div class="bg-home" style="flex-direction: column;">
+                    <h3 class="section-heading" style="text-align: left;">1.800 ton/hari & 657.000 ton/tahun sampah di Surabaya (2023).</h3>
+                    <h3 class="section-heading" style="text-align: left;">Penyumbang sampah rumah tangga 50% nya terdiri dari sampah organik (2022).</h3>
                 </div>
             </div>
         </div>
@@ -50,7 +52,7 @@
         <div class="outer">
             <div class="inner">
                 <div class="bg-home">
-                    <h2 class="section-heading">GreenSock</h2>
+                    <h2 class="section-heading" style="font-weight: 500;">O-Clean solusinya</h2>
                 </div>
             </div>
         </div>
@@ -58,8 +60,9 @@
     <section class="fourth">
         <div class="outer">
             <div class="inner">
-                <div class="bg-home">
-                    <h2 class="section-heading">Animation platform</h2>
+                <div class="bg-home" style="flex-direction: column;">
+                    <h3 class="section-heading" style="text-align: left;">Membentuk ekosistem yang terdiri atas rumah tangga, peternak maggot, bank sampah.</h3>
+                    <h3 class="section-heading" style="text-align: left;">Membuka lapangan pekerjaan baru dengan menjadi peternak maggot dan bank sampah di ekosistem.</h3>
                 </div>
             </div>
         </div>
@@ -68,7 +71,7 @@
         <div class="outer">
             <div class="inner">
                 <div class="bg-home">
-                    <h2 class="section-heading">Keep scrolling</h2>
+                    <h3 class="section-heading">Membantu distribusi produk hasil.</h3>
                 </div>
             </div>
         </div>
